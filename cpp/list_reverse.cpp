@@ -35,6 +35,16 @@ void List::fill() {
 }
 
 void List::reverse() {
+  if (current == nullptr) {
+    return;
+  }
+
+  while (current->next != nullptr) {
+    Node *tmp = current;
+    current->next = current->next->next;
+    tmp->next->next = tmp;
+    current = tmp->next;
+  }
 }
 
 // TODO:: make iter
